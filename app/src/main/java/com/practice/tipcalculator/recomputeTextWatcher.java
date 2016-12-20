@@ -42,12 +42,12 @@ public class RecomputeTextWatcher implements TextWatcher {
             tipPercent = Double.parseDouble(tip_Percent.getText().toString());
             initBill = Double.parseDouble(initial_Bill.getText().toString());
         } catch (NumberFormatException ex) {
-            final_Bill.setText("Total: $0.00");
+            final_Bill.setText("Total Bill: $0.00");
             final_Tip.setText("Tip: $0.00");
         }
         double tip = initBill * tipPercent/100;
         double total = initBill + tip;
-        final_Bill.setText("Total: $" + total);
+        final_Bill.setText("Total Bill: $" + total);
         final_Tip.setText("Tip: $" + tip);
     }
 

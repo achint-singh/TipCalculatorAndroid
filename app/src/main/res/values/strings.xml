@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">TipCalculator</string>
+    <string name="app_name">Tip Calculator</string>
+    <string name="header1">COST OF SERVICE</string>
     <string name="bill_cost">Insert Cost Here</string>
+    <string name="header2">TIP PERCENTAGE</string>
     <string name="tip_percentage">Insert Tip Percentage Here</string>
+    <string name="numOfPeople">No. of People</string>
+    <string name="tipValue">TOTAL TIP</string>
+    <string name="billValue">TOTAL BILL</string>
+    <string name="perPerson">BILL PER PERSON</string>
     <string name="default_tip">$0.00</string>
     <string name="default_bill">$0.00</string>
 </resources>

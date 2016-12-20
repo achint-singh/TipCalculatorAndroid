@@ -9,9 +9,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.practice.tipcalculator.CalculationActivity">
 
+    <!--Entering initial costs of bill-->
+     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header1"
+        android:textAlignment="center"
+        android:text="@string/header1"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/header1"
         android:id="@+id/originalBill"
         android:textAlignment="center"
         android:inputType="numberDecimal"
@@ -19,37 +28,90 @@
         android:textStyle="bold"
         android:textSize="30sp"/>
 
-
+    <!--Entering the tip percentage -->
+    <!--GOING TO CHANGE FORMATTING TO BUTTONS TO ADJUST TIP -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/originalBill"
+        android:id="@+id/header2"
+        android:textAlignment="center"
+        android:text="@string/header2"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/originalBill"
+        android:layout_below="@id/header2"
         android:id="@+id/tipPercentage"
         android:textAlignment="center"
         android:inputType="number"
         android:hint="@string/tip_percentage"
         android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:textSize="24sp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tipPercentage"
+        android:id="@+id/decreaseTip"/>
+
+
+    <!--Adding number of people to split the bill with -->
+    <!--NEED TO ADD THE BUTTONS FOR THIS. CURRENTLY JUST A LABEL-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tipPercentage"
+        android:id="@+id/numOfPeople"
+        android:textAlignment="center"
+        android:text="@string/numOfPeople"/>
+
+    <!--Calculated tip value-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numOfPeople"
+        android:id="@+id/tipValue"
+        android:textAlignment="center"
+        android:text="@string/tipValue"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/totalTip"
-        android:layout_below="@id/tipPercentage"
+        android:layout_below="@id/tipValue"
         android:textAlignment="center"
         android:text="@string/default_tip"
         android:textStyle="italic"
         android:textSize="30sp"/>
 
+    <!--Calculated bill value-->
+    <!--NEED TO ADD A LABEL FOR THIS-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/totalTip"
+        android:id="@+id/billValue"
+        android:textAlignment="center"
+        android:text="@string/billValue"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/totalBill"
-        android:layout_below="@id/totalTip"
+        android:layout_below="@id/billValue"
         android:textAlignment="center"
         android:text="@string/default_bill"
         android:textStyle="italic"
         android:textSize="30sp"/>
+
+    <!--NEED TO ADD A CALCULATED VALUE FOR BILL PER PERSON-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/totalBill"
+        android:id="@+id/perPerson"
+        android:textAlignment="center"
+        android:text="@string/perPerson"/>
+
 </RelativeLayout>
