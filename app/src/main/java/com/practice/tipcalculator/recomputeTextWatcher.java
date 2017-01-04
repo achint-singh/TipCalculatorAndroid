@@ -11,15 +11,20 @@ import android.widget.TextView;
 public class RecomputeTextWatcher implements TextWatcher {
 
     private EditText initial_Bill;
-    private EditText tip_Percent;
+    private TextView tip_Percent;
+    private TextView people_Num;
     private TextView final_Tip;
     private TextView final_Bill;
+    private TextView final_perPerson;
 
-    public RecomputeTextWatcher(EditText initialBill, EditText tipPercent, TextView finalTip, TextView finalBill) {
+    public RecomputeTextWatcher(EditText initialBill, TextView tipPercent, TextView peopleNum, TextView finalTip, TextView finalBill,
+                                TextView finalperPerson) {
         initial_Bill = initialBill;
         tip_Percent = tipPercent;
+        people_Num = peopleNum;
         final_Tip = finalTip;
         final_Bill = finalBill;
+        final_perPerson = finalperPerson;
     }
 
     @Override
@@ -36,19 +41,24 @@ public class RecomputeTextWatcher implements TextWatcher {
     }
 
     public void update() {
-        double tipPercent = 0.0;
-        double initBill = 0.0;
-        try {
-            tipPercent = Double.parseDouble(tip_Percent.getText().toString());
-            initBill = Double.parseDouble(initial_Bill.getText().toString());
-        } catch (NumberFormatException ex) {
-            final_Bill.setText("Total Bill: $0.00");
-            final_Tip.setText("Tip: $0.00");
-        }
-        double tip = initBill * tipPercent/100;
-        double total = initBill + tip;
-        final_Bill.setText("Total Bill: $" + total);
-        final_Tip.setText("Tip: $" + tip);
+
+        String tip = tip_Percent.getText().toString();
+        int tipPercent = Integer.parseInt(tip.substring(0, tip.length() - 1));
+        double initBill = Double.parseDouble(initial_Bill.getText().toString());
+        int peopleNum = Integer.parseInt(people_Num.getText().toString());
+
+        double tips = initBill * ((double)tipPercent/100);
+        double total = initBill + tips;
+        double perPerson = total/peopleNum;
+
+        String bill = String.format("$%.2f", total);
+        final_Bill.setText(bill);
+        String tipString = String.format("$%.2f", tips);
+        final_Tip.setText(tipString);
+        String finalPersonCost = String.format("$%.2f", perPerson);
+        final_perPerson.setText(finalPersonCost);
+
+
     }
 
 
